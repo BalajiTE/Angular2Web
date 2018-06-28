@@ -1,6 +1,18 @@
 ﻿import { Component } from '@angular/core';
 @Component({
     selector: 'my-app',
-    template: '<h1>Angular 2 app using visual studio 2015</h1>'
+    template: '<h1>Hello {{name}}</h1>'
 })
-export class AppComponent { }  
+
+@Component ({
+   selector: 'my-app',
+   template: ` <div>
+      <h1>{{appTitle}}</h1>
+      <div>To Tutorials Point</div>
+   </div> `,
+})
+
+export class AppComponent {
+   appTitle: string = 'Welcome';
+}
+
