@@ -9,21 +9,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
 var http_1 = require('@angular/http');
-var AppModule = (function () {
-    function AppModule() {
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/do');
+var ProductService = (function () {
+    function ProductService(_http) {
+        this._http = _http;
+        this._producturl = 'app/dataSource/products.json';
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent]
-        }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+    ProductService.prototype.getproducts = function () {
+        return this._http.get(this._producturl)
+            .map(function (response) { return response.json(); });
+        //.do(data => console.log(JSON.stringify(data)));
+    };
+    ProductService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [http_1.Http])
+    ], ProductService);
+    return ProductService;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.ProductService = ProductService;
+//# sourceMappingURL=products.services.js.map

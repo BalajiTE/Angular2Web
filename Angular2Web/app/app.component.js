@@ -9,10 +9,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var products_services_1 = require('./products.services');
+require('rxjs/add/operator/map');
 var AppComponent = (function () {
-    function AppComponent() {
+    function AppComponent(_product) {
+        this._product = _product;
         this.appTitle = 'Welcome';
+        this.appStatus = true;
+        this.appList = [
+            { "ID": "1", "Name": "One" },
+            { "ID": "2", "Name": "Two" }];
     }
+    AppComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.iproducts = this._product.getproducts();
+        this.iproducts.subscribe(function (iproducts) { return _this.products = iproducts; });
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
@@ -20,9 +32,10 @@ var AppComponent = (function () {
         }),
         core_1.Component({
             selector: 'my-app',
-            template: " <div>\n      <h1>{{appTitle}}</h1>\n      <div>To Tutorials Point</div>\n   </div> ",
+            templateUrl: 'app/views/app.component.html',
+            providers: [products_services_1.ProductService]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [products_services_1.ProductService])
     ], AppComponent);
     return AppComponent;
 }());
