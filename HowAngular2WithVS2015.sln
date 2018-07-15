@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular2Web", "Angular2Web\Angular2Web.csproj", "{D670F4E1-8A72-4770-B457-48D18556AFF2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HowAngular2WithVS2015", "HowAngular2WithVS2015\HowAngular2WithVS2015.csproj", "{D670F4E1-8A72-4770-B457-48D18556AFF2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
